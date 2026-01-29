@@ -1,5 +1,3 @@
-### Binance Trading App
-
 # Build and Run
 
 ```bash
