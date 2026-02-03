@@ -14,12 +14,7 @@ export default function App() {
       <h1 style={{ marginBottom: 8 }}>SVG symbol generator</h1>
       <p style={{ marginTop: 0, color: '#4b5563' }}>Enter a natural number</p>
 
-      <NumberField
-        value={rawVal}
-        onChange={setRawVal}
-        placeholder="e.g. 4723"
-        error={error}
-      />
+      <NumberField value={rawVal} onChange={setRawVal} placeholder="e.g. 4723" error={error} />
 
       <div style={{ display: 'flex', gap: 24, marginTop: 24, flexWrap: 'wrap' }}>
         <PreviewPanel canRender={canRender} keys={keys} />

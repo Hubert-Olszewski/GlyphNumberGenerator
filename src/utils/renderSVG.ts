@@ -6,17 +6,13 @@ type RenderOptions = {
   strokeWidth: number;
 };
 
-const polylinePoints = (points: readonly (readonly [number, number])[]): string => 
-  points.map(([x, y]) => `${x},${y}`).join(" ");
+const polylinePoints = (points: readonly (readonly [number, number])[]): string =>
+  points.map(([x, y]) => `${x},${y}`).join(' ');
 
-export const renderSVG = (
-  keys: number[],
-  glyphs: GlyphMap,
-  opts: RenderOptions
-): string => {
+export const renderSVG = (keys: number[], glyphs: GlyphMap, opts: RenderOptions): string => {
   const { size, stroke, strokeWidth } = opts;
   const polylines: string[] = [];
-  
+
   for (const key of keys) {
     const glyph = glyphs[key];
     if (!glyph) {
@@ -24,13 +20,11 @@ export const renderSVG = (
     }
 
     glyph.strokes.forEach((strokePoints) => {
-      polylines.push(
-        `<polyline points="${polylinePoints(strokePoints)}" />`
-      );
+      polylines.push(`<polyline points="${polylinePoints(strokePoints)}" />`);
     });
-}
+  }
 
-return `
+  return `
   <?xml version="1.0" encoding="UTF-8"?>
   <svg xmlns="http://www.w3.org/2000/svg"
       width="${size}" height="${size}"
@@ -40,7 +34,7 @@ return `
       stroke-width="${strokeWidth}"
       stroke-linecap="round"
       stroke-linejoin="round">
-    ${polylines.join("\n  ")}
+    ${polylines.join('\n  ')}
   </svg>
 `;
-}
+};

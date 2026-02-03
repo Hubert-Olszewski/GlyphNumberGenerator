@@ -8,7 +8,7 @@ export const useGlyphInput = () => {
 
   const keys = useMemo(() => {
     if (!parsed.value) {
-        return [];
+      return [];
     }
     return spreadGlyphsToKeys(parsed.value);
   }, [parsed.value]);
@@ -22,4 +22,4 @@ export const useGlyphInput = () => {
     keys,
     canRender,
   };
-}
+};

@@ -1,31 +1,31 @@
-export const validateInput = (raw: string): { value?: number, error?: string } => {
+export const validateInput = (raw: string): { value?: number; error?: string } => {
   const trimmed = raw.trim();
 
   if (trimmed.length === 0) {
-    return { error: 'Type number' }
+    return { error: 'Type number' };
   }
 
   if (!/^\d+$/.test(trimmed)) {
-    return { error: 'Only digits 0-9 are allowed' }
+    return { error: 'Only digits 0-9 are allowed' };
   }
 
   const n = Number.parseInt(trimmed, 10);
   if (!Number.isFinite(n)) {
-    return { error: 'Wrong number' }
+    return { error: 'Wrong number' };
   }
 
   if (n <= 0) {
-    return { error: 'The number must be greater than zero' }
+    return { error: 'The number must be greater than zero' };
   }
 
   if (n > 9999) {
-    return { error: 'Max value is 9999' }
+    return { error: 'Max value is 9999' };
   }
 
   return {
-    value: n 
-  }
-}
+    value: n,
+  };
+};
 
 export const spreadGlyphsToKeys = (n: number): number[] => {
   const t = Math.floor(n / 1000) * 1000;
@@ -34,13 +34,13 @@ export const spreadGlyphsToKeys = (n: number): number[] => {
   const u = n % 10;
 
   return [t, h, d, u].filter((x) => x !== 0);
-}
+};
 
 export const downloadSVG = (svg: string, filename: string) => {
-  const blob = new Blob([svg], { type: "image/svg+xml;charset=utf-8" });
+  const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
   const url = URL.createObjectURL(blob);
 
-  const a = document.createElement("a");
+  const a = document.createElement('a');
   a.href = url;
   a.download = filename;
 
@@ -49,4 +49,4 @@ export const downloadSVG = (svg: string, filename: string) => {
   a.remove();
 
   URL.revokeObjectURL(url);
-}
+};
