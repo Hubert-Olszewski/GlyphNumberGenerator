@@ -5,5 +5,3 @@ export type Glyph = {
 };
 
 export type GlyphMap = Record<number, Glyph>;
-
-export type ParsedNumber = { value?: number, error?: string };

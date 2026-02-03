@@ -1,6 +1,4 @@
-import type { ParsedNumber } from "../types/types";
-
-export const validateInput = (raw: string): ParsedNumber => {
+export const validateInput = (raw: string): { value?: number, error?: string } => {
   const trimmed = raw.trim();
 
   if (trimmed.length === 0) {
