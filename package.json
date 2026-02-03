@@ -7,11 +7,12 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
+    "test": "vitest run",
     "lint": "eslint .",
-    "test": "vitest",
+    "lint:fix": "eslint . --fix",
     "prettier:fix": "prettier . --write",
     "prettier:check": "prettier . --check",
-    "format": "npm run prettier:fix && npm run lint -- --fix",
+    "format": "npm run prettier:fix && npm run lint:fix",
     "prepare": "husky"
   },
   "dependencies": {
